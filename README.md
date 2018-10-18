@@ -1,4 +1,3 @@
-# README
 
 ## Database設計
 
