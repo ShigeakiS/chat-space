@@ -5,8 +5,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|index: true|
-|image|string|index: true|
+|body|text|
+|image|string|
 |user_id|refarences|null: false, foreign_key: true|
 |group_id|refarences|null: false, foreign_key: true|
 
