@@ -32,28 +32,27 @@
           .chat-main__header--group-name
             TEST
           = link_to 'edit', '/groups/1535/edit', class: 'chat-main__header--group-edit-btn'
-          / <a class="chat-main__header--group-edit-btn" href="/groups/1535/edit">edit</a>
         .chat-main__header-members.clearfix
           MEMBER:
           %i
             kage
       .chat-main__body
         .chat-main__body--messages-list
-          .chat-main__message.clearfix{"data-id" => "2636"}
+          .chat-main__message.clearfix{"data-id": "2636"}
             .chat-main__message-name
               kage
             .chat-main__message-time
               2018/10/23 14:11:14
             .chat-main__message-body
               こんにちは
-              %img.chat-main__message-body-image{:src => ""}/
+              %img.chat-main__message-body-image{src: ""}/
       .chat-main__footer
-        %form#new_message.chat-main__footer-form{"accept-charset" => "UTF-8", :action => "/groups/1535/messages", :enctype => "multipart/form-data", :method => "post"}
-          %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-          %input{:name => "authenticity_token", :type => "hidden", :value => "p/d2TPJgcoIXPY3nMO//YTfmuYFdnZcxsvAIkgVcL3ruhm/GoOVZMcUWzv/JJ709Bo3NWZ/qOoU3HDqWiOFcIA=="}/
+        %form#new_message.chat-main__footer-form{"accept-charset": "UTF-8", action: "/groups/1535/messages", enctype: "multipart/form-data", method: "post"}
+          %input{name: "utf8", type: "hidden", value: "✓"}/
+          %input{name: "authenticity_token", type: "hidden", value: "p/d2TPJgcoIXPY3nMO//YTfmuYFdnZcxsvAIkgVcL3ruhm/GoOVZMcUWzv/JJ709Bo3NWZ/qOoU3HDqWiOFcIA=="}/
           .chat-main__footer-body
-            %input#message_body.message{:name => "message[body]", :placeholder => "type a message", :type => "text"}/
-            %label.chat-file{:for => "message_image"}
-              %input#message_image.image{:name => "message[image]", :type => "file"}/
+            %input#message_body.message{name: "message[body]", placeholder: "type a message", type: "text"}/
+            %label.chat-file{for: "message_image"}
+              %input#message_image.image{name: "message[image]", type: "file"}/
               %i.fa.fa-image
-          %input.submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+          %input.submit{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}/
