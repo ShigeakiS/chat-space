@@ -4,5 +4,9 @@
 *= require_self
 */
 @import "./reset";
-@import "font-awesome"
-
+@import "font-awesome";
+@import "./modules/side";
+@import "./modules/group";
+@import "./modules/main";
+@import "./modules/footer";
+@import "./modules/flash_message";
