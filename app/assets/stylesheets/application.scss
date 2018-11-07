@@ -1,12 +1,9 @@
-
-/*
-*= require_tree .
-*= require_self
-*/
-@import "./reset";
+@import "./_reset";
+@import "./config/_colors";
 @import "font-awesome";
+@import "./modules/flash";
 @import "./modules/side";
 @import "./modules/group";
 @import "./modules/main";
 @import "./modules/footer";
-@import "./modules/flash_message";
+@import "./user";
