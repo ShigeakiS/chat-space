@@ -1,0 +1,22 @@
+.chat-side__groups {
+  height: 85%;
+  width: 100%;
+  background-color: #2f3e51;
+  &-list {
+    height: 100%;
+    color: #fff;
+  }
+}
+
+.chat-side__group {
+  padding: 20px;
+  &-name {
+    color: #FFFFFF;
+    font-size: 15px;
+  }
+  &-message {
+    color: #FFFFFF;
+    font-size: 11px;
+    padding: 5px 0;
+  }
+}
