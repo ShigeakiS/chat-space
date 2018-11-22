@@ -3,15 +3,16 @@
 .chat--contents
   .header
     .left-header
-      - current_user.groups.each do |group|
-        .left-header__title
-          = group.name
+      .left-header__title
+        = @group.name
       %ul.left-header__members
-        Member：
+        Member&nbsp;:&nbsp;
         %li.member
-
+          - @group.users.each do |user|
+            = user.name
+            &nbsp;
     .right-header
-      = link_to 'Edit', 'edit', class: 'right-header__button'
+      = link_to 'Edit', edit_group_path(@group), class: 'right-header__button'
   .messages
     = render @messages
   .form
