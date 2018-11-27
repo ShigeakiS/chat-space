@@ -40,8 +40,9 @@ $(function(){
           insertHTML += buildHTML(message);
         });
         if (insertHTML !== "") {
-          $('.messages').append(insertHTML);
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+          let message = $('.messages')
+          message.append(insertHTML);
+          message.animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         }
       })
       .fail(function() {
@@ -65,8 +66,9 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.messages').append(html)
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      let message = $('.messages')
+      message.append(html)
+      message.animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $("#new_message")[0].reset();
     })
     .fail(function(){
