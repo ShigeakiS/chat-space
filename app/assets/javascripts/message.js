@@ -1,4 +1,5 @@
 $(function(){
+  let interval = setInterval(messeageUpdate, 5000);
   function buildHTML(message){
     let imageUrl = ``
     if (message.image){
@@ -22,6 +23,35 @@ $(function(){
                 </div>`
     return html;
   }
+
+  function messeageUpdate(){
+    if (location.href.match(/\/groups\/\d+\/messages/)) {
+      let messageId = $(".message").last().attr('message-id');
+      $.ajax({
+        url: location.href,
+        type:'GET',
+        dataType: 'json',
+        data: {id: messageId}
+      })
+      .done(function(data){
+        let id = $('.message').data('messageId');
+        let insertHTML = "";
+        data.forEach(function(message){
+          insertHTML += buildHTML(message);
+        });
+        if (insertHTML !== "") {
+          let message = $('.messages')
+          message.append(insertHTML);
+          message.animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        }
+      })
+      .fail(function() {
+        alert("error");
+        clearInterval(interval);
+      })
+    }
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
@@ -36,8 +66,9 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.messages').append(html)
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'first');
+      let message = $('.messages')
+      message.append(html)
+      message.animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $("#new_message")[0].reset();
     })
     .fail(function(){
@@ -46,5 +77,5 @@ $(function(){
     .always(function(){
       $('.form__submit').prop('disabled', false);
     })
-  })
+  });
 });
